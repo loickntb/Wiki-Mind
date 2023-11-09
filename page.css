@@ -1,0 +1,40 @@
+/* Style pour le titre de la maladie */
+h1 {
+    font-size: 28px;
+    color: #333;
+}
+
+/* Style pour la description de la maladie */
+p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Style pour l'image de la maladie */
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0 10px 10px; /* Ajoutez une marge à gauche de l'image */
+    float: right;
+}
+
+/* Style pour le corps de la page */
+body {
+    font-family: 'Helvetica', sans-serif;
+    margin: 20px;
+    background-color: #f8f8f8;
+}
+
+/* Style pour le conteneur principal */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Style pour le pied de page */
+footer {
+    margin-top: 20px;
+    text-align: center;
+    color: #888;
+}

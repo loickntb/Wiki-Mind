@@ -1,0 +1,39 @@
+/* Style pour le formulaire de recherche */
+form {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+label {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+input {
+    padding: 8px;
+    font-size: 16px;
+}
+
+/* Style pour la liste mise à jour */
+#results-container {
+    text-align: left;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #ff6347; /* Couleur au survol du lien */
+}
