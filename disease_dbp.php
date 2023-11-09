@@ -46,7 +46,16 @@ WHERE {
     FILTER (lang(?diseaseDescription) = "fr").
 }
 }
+';
 
+
+$SYMPTOMS_QUERY = '
+SELECT  ?symptom ?symptomLabel
+WHERE {
+  dbr:'.$diseaseID.' dbp:symptoms ?symptom
+  ?symptom rdfs:label ?symptomLabel.
+  FILTER(LANG(?symptomLabel) = "fr")
+}
 ';
 
 $results = $sparql->query($SPARQL_QUERY);
@@ -54,6 +63,10 @@ $results = $sparql->query($SPARQL_QUERY);
 $result = $results->current();
 
 $disease = $result->diseaseLabel->getValue();
+
+$symptoms = $sparql->query($SYMPTOMS_QUERY);
+//$symptom = symptoms->current();
+
 
 if($result->diseaseDescription != "")  {
   $diseaseDescription = $result->diseaseDescription->getValue();
@@ -94,6 +107,18 @@ if ($diseaseDescription == "Pas de description en français disponible") {
   echo '<p>' . $diseaseDescription . '</p>';
 }
 
+echo '<p> Symptômes : </p>';
+/*
+foreach($symptoms as $row){
+    $symptomLabel = $row->symptomLabel;
+    $parts = explode("/", $disease);
+    $symptomQ = $parts[4];
+
+    $symptomURL = 'disease_dbp.php?diseaseID=' . $symptomQ;
+
+    echo '<li><a href="' . $symptomURL . '">' . $symptomLabel->getValue() . '</a></li>';
+}
+*/
 
 
 ?>
