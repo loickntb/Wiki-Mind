@@ -45,7 +45,7 @@ if (isset($_POST['search'])) {
         $parts = explode("/", $disease);
         $diseaseQ = $parts[4];
 
-        $diseaseURL = 'disease.php?diseaseID=' . $diseaseQ;
+        $diseaseURL = 'disease_wkd.php?diseaseID=' . $diseaseQ;
 
         echo '<li><a href="' . $diseaseURL . '">' . $diseaseLabel->getValue() . '</a></li>';
     }

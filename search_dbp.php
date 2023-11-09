@@ -41,7 +41,7 @@ $("#search").on("input", function() {
 function performSearch() {
     var searchTerm = $("#search").val();
     $.ajax({
-        url: "ajaax_search_dbp.php",
+        url: "ajax_search_dbp.php",
         method: "POST",
         data: { search: searchTerm },
         success: function(data) {

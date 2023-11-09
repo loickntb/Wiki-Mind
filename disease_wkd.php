@@ -106,7 +106,7 @@ if ($diseaseDescription == "Pas de description en français disponible") {
         $("#loadEnglishDescription").on("click", function() {
             // Effectuer une requête asynchrone pour récupérer la description en anglais
             $.ajax({
-                url: "load_english_description.php", // Remplacez cela par le chemin réel de votre fichier PHP pour charger la description en anglais
+                url: "load_english_wkd.php", // Remplacez cela par le chemin réel de votre fichier PHP pour charger la description en anglais
                 method: "POST",
                 data: { diseaseID: <?php echo json_encode($diseaseID); ?> }, // Passer l'identifiant de la maladie au fichier PHP
                 success: function(englishDescription) {
