@@ -52,7 +52,7 @@ WHERE {
 $SYMPTOMS_QUERY = '
 SELECT  ?symptom ?symptomLabel
 WHERE {
-  dbr:'.$diseaseID.' dbp:symptoms ?symptom
+  dbr:'.$diseaseID.' dbp:symptoms ?symptom.
   ?symptom rdfs:label ?symptomLabel.
   FILTER(LANG(?symptomLabel) = "fr")
 }
@@ -108,17 +108,27 @@ if ($diseaseDescription == "Pas de description en français disponible") {
 }
 
 echo '<p> Symptômes : </p>';
-/*
-foreach($symptoms as $row){
+
+echo '<ul>';
+if (count($symptoms) > 0) {
+  foreach($symptoms as $row){
+
+    $symptom = $row->symptom;
     $symptomLabel = $row->symptomLabel;
-    $parts = explode("/", $disease);
+    $parts = explode("/", $symptom);
     $symptomQ = $parts[4];
 
     $symptomURL = 'disease_dbp.php?diseaseID=' . $symptomQ;
 
-    echo '<li><a href="' . $symptomURL . '">' . $symptomLabel->getValue() . '</a></li>';
+    echo '<li><a href="' . $symptomURL . '">' . $symptomLabel->getValue() . '</a></li>';  
+
+  }
 }
-*/
+else{
+  echo '<p> Pas de symptômes décrits </p>';
+}
+echo '</ul>';
+
 
 
 ?>

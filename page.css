@@ -38,3 +38,22 @@ footer {
     text-align: center;
     color: #888;
 }
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #ff6347; /* Couleur au survol du lien */
+}
