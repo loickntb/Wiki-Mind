@@ -34,21 +34,6 @@ if (isset($_POST['search'])) {
     LIMIT 5
     ";
 
-/*
-$SPARQL_QUERY = '
-SELECT ?disease ?diseaseLabel ?diseaseDescription
-WHERE {
-  ?disease a dbo:Disease.
-  ?disease rdfs:label ?diseaseLabel.
-  FILTER (lang(?diseaseLabel) = "fr").
-  OPTIONAL {
-    ?disease dbo:abstract ?diseaseDescription.
-    FILTER (lang(?diseaseDescription) = "fr").
-}
-}
-ORDER BY ?diseaseLabel
-';
-*/
 
     // Exécuter la requête SPARQL avec la nouvelle requête
     $results = $sparql->query($SPARQL_QUERY);

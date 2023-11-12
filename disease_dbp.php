@@ -65,7 +65,6 @@ $result = $results->current();
 $disease = $result->diseaseLabel->getValue();
 
 $symptoms = $sparql->query($SYMPTOMS_QUERY);
-//$symptom = symptoms->current();
 
 
 if($result->diseaseDescription != "")  {
@@ -125,7 +124,9 @@ if (count($symptoms) > 0) {
   }
 }
 else{
-  echo '<p> Pas de symptômes décrits </p>';
+  echo '<p id = "originalSymptom" > Pas de symptômes décrits en français </p>';
+  echo '<p id="loadEnglishSymptom" style="color: blue; cursor: pointer; text-decoration: underline;">Charger la description en anglais</p>';
+  echo '<p id="englishSymptom" style="display: none;"></p>';
 }
 echo '</ul>';
 
@@ -151,6 +152,26 @@ echo '</ul>';
                     $("#englishDescription").show();
                     $("#loadEnglishDescription").hide();
                     $("#originalDescription").hide();
+                }
+            });
+        });
+    </script>
+
+<script>
+        // Gérer le clic sur le texte pour charger la description en anglais
+        $("#loadEnglishSymptom").on("click", function() {
+            // Effectuer une requête asynchrone pour récupérer la description en anglais
+            $.ajax({
+                url: "load_english_symptom_dbp.php", // Remplacez cela par le chemin réel de votre fichier PHP pour charger la description en anglais
+                method: "POST",
+                data: { diseaseID: <?php echo json_encode($diseaseID); ?> }, // Passer l'identifiant de la maladie au fichier PHP
+                success: function(englishDescription) {
+                    // Mettre à jour le contenu de la description en anglais
+                    $("#englishSymptom").html(englishDescription);
+                    // Afficher la description en anglais et masquer le texte cliquable
+                    $("#englishSymptom").show();
+                    $("#loadEnglishSymptom").hide();
+                    $("#originalSymptom").hide();
                 }
             });
         });
