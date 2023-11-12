@@ -52,7 +52,7 @@ WHERE {
 $SYMPTOMS_QUERY = '
 SELECT  ?symptom ?symptomLabel
 WHERE {
-  dbr:'.$diseaseID.' dbp:symptoms ?symptom.
+  dbr:'.$diseaseID.' dbo:symptom ?symptom.
   ?symptom rdfs:label ?symptomLabel.
   FILTER(LANG(?symptomLabel) = "fr")
 }

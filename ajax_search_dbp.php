@@ -25,6 +25,7 @@ if (isset($_POST['search'])) {
     $SPARQL_QUERY = "
     SELECT ?disease ?diseaseLabel 
     WHERE {
+      ?disease dbp:field dbr:Psychiatry.
       ?disease a dbo:Disease.
       ?disease rdfs:label ?diseaseLabel.
       FILTER(LANG(?diseaseLabel) = 'fr' && CONTAINS(LCASE(?diseaseLabel), LCASE('$searchTerm'))).
