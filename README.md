@@ -9,4 +9,4 @@ entrez la commande : composer require easyrdf/easyrdf
 
 lancez le serveur PHP avec la commande : php -S localhost:8080
 
-allez sur : localhost:8080/search_dbp.php
+allez sur : localhost:8080 dans votre navigateur
