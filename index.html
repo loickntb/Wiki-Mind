@@ -1,15 +1,46 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Recherche de maladies</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="search.css"> <!-- Lien vers votre fichier CSS -->
 </head>
 <body>
-  <form action="search.php" method="post">
-    <input type="text" name="symptom" placeholder="Symptôme">
-    <input type="submit" value="Rechercher">
-  </form>
 
+    <!-- Afficher l'image en haut à gauche -->
+    <img src="/images/logo.png" alt="Logo" style="position: absolute; top: 0; left: 0; margin: 10px; width: 125px; height: auto;">
+
+    <!-- Afficher le formulaire de recherche -->
+    <form method="post" action="">
+        <label for="search">Rechercher une maladie :</label>
+        <input type="text" id="search" name="search" required>
+    </form>
+
+    <!-- Afficher la liste mise à jour avec JavaScript -->
+    <div id="results-container"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        var typingTimer;
+        var doneTypingInterval = 500; // Attendez 500 ms après que l'utilisateur a cessé de taper
+
+        $("#search").on("input", function() {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(performSearch, doneTypingInterval);
+        });
+
+        function performSearch() {
+            var searchTerm = $("#search").val();
+            $.ajax({
+                url: "ajax_search_dbp.php",
+                method: "POST",
+                data: { search: searchTerm },
+                success: function(data) {
+                    $("#results-container").html(data);
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>
