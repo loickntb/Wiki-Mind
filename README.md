@@ -1,12 +1,10 @@
 # Wiki-Mind
-Projet Web, SparQL avec recherche de maladie
+Web project, using SparQL on dbpedia for mental disorder search feature
 
-Pour que ce projet fonctionne sur votre machine locale, il vous faudra installer PHP (puis le mettre sur tout votre environnement avec les variables d'environnement -> Path - > modifier et ajouter le chemin vers votre dossier php).
-Ensuite il vous faudra installer composer.
+For this project to work on your local machine, you will need to install PHP (then put it on your entire environment with environment variables -> Path -> modify and add the path to your php folder).
+Then you will need to install composer. 
 
-Une fois composer installé, ouvrez une invite de commande dans le dossier de ce repo cloné au préalable.
-entrez la commande : composer require easyrdf/easyrdf
-
-lancez le serveur PHP avec la commande : php -S localhost:8080
-
-allez sur : localhost:8080 dans votre navigateur
+Once composer is installed, open a command prompt in the folder of this previously cloned repo. 
+enter the command: composer require easyrdf/easyrdf 
+launch the PHP server with the command: php -S localhost:8080 
+go to: localhost:8080 in your browser
