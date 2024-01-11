@@ -8,3 +8,5 @@ Once composer is installed, open a command prompt in the folder of this previous
 enter the command: composer require easyrdf/easyrdf 
 launch the PHP server with the command: php -S localhost:8080 
 go to: localhost:8080 in your browser
+
+Access : https://dynamo-wikimind.azurewebsites.net/
